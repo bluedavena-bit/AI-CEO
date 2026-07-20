@@ -1,0 +1,263 @@
+/* AI CEO™ Premium SaaS Design */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0f172a;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+
+header {
+    text-align: center;
+    padding: 60px 20px 40px;
+    background: linear-gradient(135deg, #111827, #1e3a8a);
+}
+
+
+header h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+
+header p {
+    font-size: 20px;
+    max-width: 700px;
+    margin: auto;
+    color: #dbeafe;
+}
+
+
+
+main {
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px 20px;
+}
+
+
+
+/* HERO */
+
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+
+.hero h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+
+.hero p {
+    max-width: 750px;
+    margin: 15px auto;
+    font-size: 18px;
+    color: #cbd5e1;
+}
+
+
+
+/* BUTTONS */
+
+button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: .3s;
+}
+
+
+button:hover {
+    transform: translateY(-2px);
+    opacity: .9;
+}
+
+
+
+/* PRICING */
+
+.pricing {
+    padding: 50px 0;
+    text-align: center;
+}
+
+
+.pricing h2 {
+    font-size: 34px;
+    margin-bottom: 40px;
+}
+
+
+.tier {
+    display: inline-block;
+    vertical-align: top;
+    width: 260px;
+    min-height: 400px;
+    margin: 15px;
+    padding: 30px 20px;
+    background: #1e293b;
+    border-radius: 16px;
+    text-align: left;
+    box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+
+
+.tier h3 {
+    font-size: 24px;
+    text-align: center;
+}
+
+
+.tier h4 {
+    text-align: center;
+    font-size: 28px;
+    color: #60a5fa;
+}
+
+
+.tier ul {
+    padding-left: 20px;
+}
+
+
+.tier li {
+    margin-bottom: 12px;
+    color: #e2e8f0;
+}
+
+
+.tier button {
+    width: 100%;
+}
+
+
+
+/* FEATURED $49 OFFER */
+
+.featured {
+    border: 3px solid #60a5fa;
+    transform: scale(1.05);
+}
+
+
+
+/* FORMS */
+
+#assessment,
+#payment,
+#result {
+
+    background: #1e293b;
+    padding: 40px;
+    border-radius: 16px;
+    margin-top: 40px;
+
+}
+
+
+
+label {
+    display:block;
+    margin-top:20px;
+    margin-bottom:5px;
+}
+
+
+
+input {
+
+    width:100%;
+    padding:15px;
+    border-radius:8px;
+    border:none;
+    background:#f8fafc;
+    color:#111827;
+
+}
+
+
+
+.hidden {
+    display:none;
+}
+
+
+
+/* CTA */
+
+.cta {
+
+    text-align:center;
+    padding:70px 20px;
+    background:#1e3a8a;
+    border-radius:20px;
+    margin-top:60px;
+
+}
+
+
+.cta h2 {
+
+    font-size:36px;
+
+}
+
+
+
+/* FOOTER */
+
+footer {
+
+    text-align:center;
+    padding:30px;
+    color:#94a3b8;
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+header h1{
+    font-size:36px;
+}
+
+
+.hero h2{
+    font-size:30px;
+}
+
+
+.tier {
+
+    display:block;
+    width:100%;
+    margin:25px 0;
+
+}
+
+
+.featured {
+
+    transform:none;
+
+}
+
+
+}
