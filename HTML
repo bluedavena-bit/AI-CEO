@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI CEO™ | Your Virtual Executive Team</title>
+
+<link rel="stylesheet" href="styles.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>AI CEO™</h1>
+
+<p>
+Your Virtual Executive Team for Building, Organizing & Growing Your Business
+</p>
+
+</header>
+
+
+
+<main>
+
+
+<section class="hero">
+
+<h2>
+Stop Building Alone. Start Operating Like a CEO.
+</h2>
+
+
+<p>
+AI CEO™ gives entrepreneurs, creators, nonprofits, and small business owners
+the strategy, systems, and tools they need to grow without hiring a full team.
+</p>
+
+
+<button onclick="showForm()">
+
+Start Your Free CEO Assessment
+
+</button>
+
+
+</section>
+
+
+
+
+
+<section class="pricing">
+
+<h2>
+Choose Your CEO Growth Path
+</h2>
+
+
+
+<div class="tier">
+
+<h3>🆓 CEO Starter</h3>
+
+<h4>FREE</h4>
+
+
+<ul>
+
+<li>CEO Assessment</li>
+<li>Business Clarity Score</li>
+<li>7-Day Action Plan</li>
+<li>Starter AI Business Prompts</li>
+
+</ul>
+
+
+<button onclick="showForm()">
+
+Start Free
+
+</button>
+
+
+</div>
+
+
+
+
+
+<div class="tier featured">
+
+<h3>
+🚀 AI CEO Blueprint
+</h3>
+
+
+<h4>
+$49 One-Time
+</h4>
+
+
+<ul>
+
+<li>Personalized 90-Day Blueprint</li>
+<li>Business Growth Roadmap</li>
+<li>Marketing Starter Strategy</li>
+<li>Operations Checklist</li>
+<li>CEO Workbook</li>
+
+</ul>
+
+
+
+<button onclick="showForm()">
+
+Unlock Blueprint
+
+</button>
+
+
+</div>
+
+
+
+
+
+<div class="tier">
+
+<h3>
+📈 AI CEO Pro
+</h3>
+
+
+<h4>
+$19/month
+</h4>
+
+
+<ul>
+
+<li>Monthly CEO Reviews</li>
+<li>Marketing Director Tools</li>
+<li>Money Management Tools</li>
+<li>Operations Planning</li>
+<li>New AI Resources Monthly</li>
+
+</ul>
+
+
+
+<button>
+
+Join Pro
+
+</button>
+
+
+</div>
+
+
+
+
+
+<div class="tier">
+
+<h3>
+👥 AI CEO Teams
+</h3>
+
+
+<h4>
+$99/month
+</h4>
+
+
+<ul>
+
+<li>Team Dashboard</li>
+<li>SOP Builder</li>
+<li>Organization Planning</li>
+<li>Grant & Growth Support</li>
+<li>Business Systems Library</li>
+
+</ul>
+
+
+<button>
+
+Build My Team
+
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section id="assessment" class="hidden">
+
+
+<h2>
+Create Your Free CEO Assessment
+</h2>
+
+
+<p>
+Answer a few questions and discover your CEO growth path.
+</p>
+
+
+
+<label>
+Your Name:
+</label>
+
+<input type="text" id="name">
+
+
+
+<label>
+Your Email:
+</label>
+
+<input type="email" id="email">
+
+
+
+<label>
+Your Business Goal:
+</label>
+
+<input 
+type="text"
+id="goal"
+placeholder="Start a business, grow revenue, organize operations">
+
+
+
+<label>
+Current Monthly Income:
+</label>
+
+<input type="text" id="income">
+
+
+
+<label>
+Target Monthly Income:
+</label>
+
+<input type="text" id="target">
+
+
+
+<label>
+Your Skills:
+</label>
+
+<input type="text" id="skills">
+
+
+
+<label>
+Your Biggest Challenge:
+</label>
+
+<input type="text" id="challenge">
+
+
+
+<label>
+Hours Available Weekly:
+</label>
+
+<input type="number" id="hours">
+
+
+
+<button onclick="proceedToPayment()">
+
+Unlock My AI CEO Blueprint - $49
+
+</button>
+
+
+
+</section>
+
+
+
+
+
+
+
+<section id="payment" class="hidden">
+
+
+<h2>
+Complete Your Purchase
+</h2>
+
+
+<p>
+Unlock your personalized AI CEO™ Blueprint for $49.
+</p>
+
+
+<div id="paypal-button-container"></div>
+
+
+</section>
+
+
+
+
+
+
+
+<section id="result" class="hidden">
+
+
+<h2>
+Your AI CEO™ Blueprint
+</h2>
+
+
+<div id="blueprint"></div>
+
+
+<button onclick="restart()">
+
+Create Another Blueprint
+
+</button>
+
+
+</section>
+
+
+
+
+
+
+
+<section class="cta">
+
+
+<h2>
+Ready to Build Like a CEO?
+</h2>
+
+
+<p>
+Your vision deserves a strategy, a system, and an AI-powered team behind it.
+</p>
+
+
+<button onclick="showForm()">
+
+Create My CEO Blueprint
+
+</button>
+
+
+</section>
+
+
+
+</main>
+
+
+
+
+
+
+
+<footer>
+
+<p>
+© 2026 AI CEO™. Build smarter. Grow faster.
+</p>
+
+</footer>
+
+
+
+
+
+
+<!-- PayPal Sandbox Testing -->
+
+<script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
+
+
+<!-- AI CEO App Logic -->
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
