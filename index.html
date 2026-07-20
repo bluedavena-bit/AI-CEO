@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEO Blueprint - Your 90-Day Action Plan</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>CEO Blueprint</h1>
+        <p>Your 90-Day Action Plan to Success</p>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Welcome to Your CEO Blueprint</h2>
+            <p>Build your personalized 90-day action plan to achieve your goals. Answer a few questions and get your customized blueprint for success.</p>
+            <p style="font-weight: bold; color: #60a5fa;">One-time payment: $49</p>
+            <button onclick="showForm()">Start Your Blueprint</button>
+        </section>
+
+        <section id="assessment" class="hidden">
+            <h2>Tell Us About Your Goal</h2>
+            
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" placeholder="Enter your name">
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" placeholder="Enter your email">
+
+            <label for="goal">What is your main goal?</label>
+            <input type="text" id="goal" placeholder="e.g., Start my own business, Get a promotion, etc.">
+
+            <label for="income">Current Monthly Income:</label>
+            <input type="text" id="income" placeholder="e.g., $2,000">
+
+            <label for="target">Target Monthly Income:</label>
+            <input type="text" id="target" placeholder="e.g., $5,000">
+
+            <label for="skills">What are your top skills?</label>
+            <input type="text" id="skills" placeholder="e.g., Leadership, Marketing, Programming">
+
+            <label for="challenge">What's your biggest challenge?</label>
+            <input type="text" id="challenge" placeholder="e.g., Lack of time, Limited resources">
+
+            <label for="hours">How many hours per week can you dedicate?</label>
+            <input type="number" id="hours" placeholder="e.g., 10">
+
+            <button onclick="proceedToPayment()">Proceed to Payment ($49)</button>
+        </section>
+
+        <section id="payment" class="hidden">
+            <h2>Complete Your Purchase</h2>
+            <p>One-time payment of <strong>$49.00</strong> for your personalized CEO Blueprint</p>
+            <div id="paypal-button-container"></div>
+        </section>
+
+        <section id="result" class="hidden">
+            <div id="blueprint"></div>
+            <button onclick="restart()">Create Another Blueprint</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 CEO Blueprint. Take action today to build your future.</p>
+    </footer>
+
+    <!-- PayPal SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=USD"></script>
+    <script src="script.js"></script>
+</body>
+</html>
