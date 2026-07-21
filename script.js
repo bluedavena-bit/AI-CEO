@@ -569,6 +569,40 @@ function sendBlueprintEmail(){
 
 
 // =====================================
+// SHOW SUBSCRIPTION OPTIONS
+// =====================================
+
+
+function showSubscriptionOptions() {
+
+    alert(`
+🚀 AI CEO™ SUBSCRIPTION TIERS
+
+📈 AI CEO PRO - $19/month
+✓ Monthly personalized review/check-in
+✓ Updated blueprint each month
+✓ Access to templates & tools library
+✓ Email support
+✓ Monthly group coaching call
+✓ Downloadable resources
+
+👥 AI CEO TEAMS - $99/month
+✓ Everything in PRO, PLUS:
+✓ Team member accounts (3-5 people)
+✓ Team dashboard & performance tracking
+✓ SOP builder tool
+✓ Organization charts & roles
+✓ Team training videos library
+✓ Priority support
+
+Coming Soon! Subscribe via our membership portal.
+    `);
+
+}
+
+
+
+// =====================================
 // RESET APP
 // =====================================
 
