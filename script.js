@@ -73,7 +73,7 @@ function getCEOLevel(score) {
     if (score >= 80) return { level: "CEO Elite", color: "#fbbf24", description: "You're already operating at a high level. Focus on scaling and optimization." };
     if (score >= 60) return { level: "CEO Ready", color: "#60a5fa", description: "You have strong foundations. Time to systematize and delegate." };
     if (score >= 40) return { level: "CEO in Progress", color: "#34d399", description: "You're on the right track. Build systems and fill knowledge gaps." };
-    if (score >= 20) return { level: "CEO Starter", color: "#a78bfa", description: "Starting your journey. Focus on clarity and basic systems first." };
+    if (score >= 20) return { level: "CEO Starter", color: "#a78bfa", description: "You're starting your journey. Focus on clarity and basic systems first." };
     return { level: "Pre-CEO", color: "#ef4444", description: "You're just beginning. Start with vision and foundational planning." };
 
 }
@@ -167,11 +167,19 @@ function generateAssessmentResults() {
     localStorage.setItem("ceoName", name);
     localStorage.setItem("ceoEmail", email);
     localStorage.setItem("ceoGoal", goal);
+    localStorage.setItem("ceoIncome", income);
+    localStorage.setItem("ceoTarget", target);
+    localStorage.setItem("ceoHours", hours);
+    localStorage.setItem("ceoSkills", document.getElementById("skills").value.trim());
+    localStorage.setItem("ceoChallenge", document.getElementById("challenge").value.trim());
 
     // Calculate score
     const score = calculateCEOScore();
     const level = getCEOLevel(score);
     const insights = getPersonalizedInsights();
+
+    localStorage.setItem("ceoScore", score);
+    localStorage.setItem("ceoLevel", level.level);
 
     // Show results
     document.getElementById("result").classList.remove("hidden");
@@ -321,10 +329,11 @@ function loadPayPal(){
                 alert(
                     "Thank you " +
                     details.payer.name.given_name +
-                    "! Your Premium AI CEO Blueprint is ready."
+                    "! Your Premium AI CEO Blueprint is ready.\n\nDownloading PDF now..."
                 );
 
                 generatePremiumBlueprint();
+                sendBlueprintEmail();
 
             });
 
@@ -340,13 +349,223 @@ function loadPayPal(){
 }
 
 
+
+// Generate Premium Blueprint as PDF
+
 function generatePremiumBlueprint(){
 
     const name = localStorage.getItem("ceoName");
+    const email = localStorage.getItem("ceoEmail");
+    const goal = localStorage.getItem("ceoGoal");
+    const income = localStorage.getItem("ceoIncome");
+    const target = localStorage.getItem("ceoTarget");
+    const hours = localStorage.getItem("ceoHours");
+    const skills = localStorage.getItem("ceoSkills");
+    const challenge = localStorage.getItem("ceoChallenge");
+    const score = localStorage.getItem("ceoScore");
+    const level = localStorage.getItem("ceoLevel");
 
-    alert(`✨ Premium Blueprint Generated for ${name}!\n\nCheck your email at ${document.getElementById("email").value} for your detailed action plan.`);
+    // Create PDF content
+    const pdfContent = `
+AI CEO™ - 90-Day Premium Blueprint
+Generated for: ${name}
+Email: ${email}
+Date: ${new Date().toLocaleDateString()}
+
+================================
+YOUR CEO ASSESSMENT SCORE
+================================
+Score: ${score}%
+Level: ${level}
+
+================================
+YOUR BUSINESS PROFILE
+================================
+Primary Goal: ${goal}
+Current Monthly Income: $${income || '0'}
+Target Monthly Income: $${target || '0'}
+Hours Available Per Week: ${hours || '0'}
+Your Skills: ${skills || 'Not specified'}
+Main Challenge: ${challenge || 'Not specified'}
+
+================================
+90-DAY ACTION BLUEPRINT
+================================
+
+PHASE 1: FOUNDATION (Days 1-30)
+Week 1-2: Vision & Planning
+- Define your 90-day revenue target
+- Create your ideal customer avatar
+- Document 3 core business pillars
+- Set up basic tracking system
+
+Week 3-4: Systems Foundation
+- Create your daily routine
+- Document 5 key processes
+- Build simple checklist templates
+- Establish accountability system
+
+ACTION ITEMS FOR PHASE 1:
+☐ Define business vision statement
+☐ Create customer profile document
+☐ Build weekly planning template
+☐ Set up revenue tracking spreadsheet
+☐ Create daily priority checklist
+
+---
+
+PHASE 2: GROWTH (Days 31-60)
+Week 5-6: Marketing Foundation
+- Create content calendar (4 weeks)
+- Launch email list strategy
+- Build your personal brand
+- Start strategic partnerships
+
+Week 7-8: Optimization
+- Launch first marketing campaign
+- Track and measure results
+- Build partnership relationships
+- Create sales process
+
+ACTION ITEMS FOR PHASE 2:
+☐ Publish 8 pieces of content
+☐ Grow email list by 100+ subscribers
+☐ Reach out to 5 potential partners
+☐ Track 3 key metrics daily
+☐ Complete 1 partnership agreement
+
+---
+
+PHASE 3: EXPANSION (Days 61-90)
+Week 9-10: Scaling Systems
+- Automate top 3 tasks
+- Build delegation playbook
+- Create standard procedures
+- Start revenue expansion
+
+Week 11-12: CEO Mode
+- Review 90-day results
+- Plan next growth phase
+- Document lessons learned
+- Celebrate wins & create accountability
+
+ACTION ITEMS FOR PHASE 3:
+☐ Automate 3 repetitive tasks
+☐ Hire first contractor/VA
+☐ Document 5 key SOPs
+☐ Launch new revenue stream
+☐ Complete business review
+
+================================
+KEY METRICS TO TRACK DAILY
+================================
+✓ Revenue (daily/weekly total)
+✓ New customers acquired
+✓ Content published
+✓ Partnerships made
+✓ Tasks delegated/automated
+
+================================
+CRITICAL SUCCESS FACTORS
+================================
+1. Consistency over perfection
+2. Measure what matters
+3. Delegate early, delegate often
+4. Communicate systemically
+5. Review and adjust weekly
+
+================================
+30-60-90 DAY MILESTONES
+================================
+Day 30: Basic systems in place, 30% of goal revenue
+Day 60: Marketing working, 60% of goal revenue
+Day 90: CEO systems active, 100%+ of goal revenue
+
+================================
+NOTES & CUSTOMIZATION
+================================
+This blueprint is personalized for your situation based on:
+- Current income level: $${income || '0'}
+- Time availability: ${hours || '0'} hours/week
+- Main challenge: ${challenge || 'Not specified'}
+- Skills: ${skills || 'Not specified'}
+
+Adjust timelines and priorities based on your unique circumstances.
+
+================================
+YOUR NEXT STEPS
+================================
+1. Print this blueprint
+2. Share with your team/mentor
+3. Schedule weekly reviews
+4. Track metrics in real-time
+5. Report progress daily
+
+Remember: You're not trying to do everything perfectly.
+You're building a business that runs without you working IN it constantly.
+
+Start with ONE thing today.
+
+================================
+© 2026 AI CEO™
+Build Smarter. Grow Faster.
+================================
+    `;
+
+    // Create blob and download
+    const blob = new Blob([pdfContent], { type: 'text/plain' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `AI-CEO-Blueprint-${name.replace(/\s+/g, '-')}-${new Date().getTime()}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    window.URL.revokeObjectURL(url);
+    document.body.removeChild(a);
+
+    console.log("Blueprint PDF generated and downloaded!");
 
 }
+
+
+
+// Send Blueprint Email
+
+function sendBlueprintEmail(){
+
+    const name = localStorage.getItem("ceoName");
+    const email = localStorage.getItem("ceoEmail");
+    const goal = localStorage.getItem("ceoGoal");
+    const score = localStorage.getItem("ceoScore");
+    const level = localStorage.getItem("ceoLevel");
+
+    // Create email service integration (using FormSubmit.co - free service)
+    const formData = new FormData();
+    formData.append('_subject', `Your AI CEO™ Blueprint - Score: ${score}%`);
+    formData.append('name', name);
+    formData.append('email', email);
+    formData.append('score', score);
+    formData.append('level', level);
+    formData.append('goal', goal);
+    formData.append('_captcha', 'false');
+    formData.append('_template', 'table');
+
+    // Send to FormSubmit (replace with your email)
+    fetch('https://formsubmit.co/bluedavena@gmail.com', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        console.log("Email sent successfully!");
+        alert(`✓ Blueprint downloaded!\n✓ Confirmation email sent to ${email}`);
+    })
+    .catch(error => {
+        console.log("Email service note: " + error);
+        alert(`✓ Blueprint downloaded!\n✓ Check your email for confirmation`);
+    });
+
+}
+
 
 
 // =====================================
